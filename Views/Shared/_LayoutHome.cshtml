@@ -1,693 +1,389 @@
-﻿@using Traveler.Helper
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>Travel GUIDE</title>
     <meta charset="utf-8">
-    <title>TravelingYuk</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
-    <!-- Favicon -->
-    <link href="~/img/icon-luxury.png" rel="icon">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/camera.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/superfish.js"></script>
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.ui.totop.js"></script>
 
-    <!-- Libraries Stylesheet -->
-    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // camera
+            $('#camera_wrap').camera({
+                //thumbnails: true
+                autoAdvance: true,
+                mobileAutoAdvance: true,
+                //fx					: 'simpleFade',
+                height: '51%',
+                hover: false,
+                loader: 'none',
+                navigation: true,
+                navigationHover: false,
+                mobileNavHover: false,
+                playPause: false,
+                pauseOnClick: false,
+                pagination: true,
+                time: 7000,
+                transPeriod: 1000,
+                minHeight: '200px'
+            });
 
-    <!-- Template Stylesheet -->
-    <link href="~/css/style.css" rel="stylesheet">
+            //	carouFredSel
+            $('#slider3 .carousel.main ul').carouFredSel({
+                auto: {
+                    timeoutDuration: 80000
+                },
+                responsive: true,
+                prev: '.prev3',
+                next: '.next3',
+                width: '100%',
+                scroll: {
+                    items: 1,
+                    duration: 1000,
+                    easing: "easeOutExpo"
+                },
+                items: {
+                    width: '350',
+                    height: 'variable', //	optionally resize item-height
+                    visible: {
+                        min: 1,
+                        max: 4
+                    }
+                },
+                mousewheel: false,
+                swipe: {
+                    onMouse: true,
+                    onTouch: true
+                }
+            });
+            $(window).bind("resize", updateSizes_vat).bind("load", updateSizes_vat);
+
+            function updateSizes_vat() {
+                $('#slider3 .carousel.main ul').trigger("updateSizes");
+            }
+            updateSizes_vat();
+
+        }); //
+        $(window).load(function () {
+            //
+
+        }); //
+    </script>
+    <!--[if lt IE 8]>
+        <div style='text-align:center'><a href="https://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <![endif]-->
 </head>
 
-<body>
-    <div class="container-xxl bg-white p-0">
+<body class="main">
+    <div id="main">
 
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-bar bg-dark">
-            <nav class="navbar navbar-expand-lg bg-dark navbar-light py-0 pt-xxl-3">
-                <a asp-controller="Home" asp-action="Index" class="navbar-brand d-flex align-items-center text-center">
-                    <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="~/img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
-                    </div>
-                    <h1 class="m-0 text-primary">TravelingYuk</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                    </div>
+        <div class="top1 clearfix">
+            <header>
+                <div class="logo_wrapper log">
+                    <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
                 </div>
-
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Transportasi</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a asp-controller="Pesawat" asp-action="Index" class="dropdown-item">Tiket Pesawat</a>
-                        <a asp-controller="Kereta" asp-action="Index" class="dropdown-item">Tiket Kreta Api</a>
-                        <a asp-controller="Bus" asp-action="Index" class="dropdown-item">Tiket Bus/Travel</a>
-                    </div>
+            </header>
+            <div class="top2 clearfix">
+                <div class="search-form-wrapper clearfix">
+                    <form id="search-form" action="search.php" method="GET" accept-charset="utf-8" class="navbar-form">
+                        <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''">
+                        <a href="#" onClick="document.getElementById('search-form').submit()"></a>
+                    </form>
                 </div>
+                <div class="menu_wrapper clearfix">
+                    <div class="navbar navbar_">
+                        <div class="navbar-inner navbar-inner_">
+                            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            <div class="nav-collapse nav-collapse_ collapse">
+                                <ul class="nav sf-menu clearfix">
+                                    <li class="active"><a href="index.html">home</a></li>
+                                    <li><a href="index-1.html">about</a></li>
+                                    <li><a href="index-2.html">hot tours</a></li>
+                                    <li><a href="index-3.html">destinations</a></li>
+                                    <li class="sub-menu sub-menu-1">
+                                        <a href="#">Pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <ul>
+                                            <li><a href="index-4.html">Gallery</a></li>
+                                            <li><a href="index-5.html">Services</a></li>
+                                            <li><a href="404.html">404 page not found</a></li>
+                                        </ul>
+                                    </li>
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Tempat Menginap</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="#" class="dropdown-item">Hotel</a>
-                        <a href="#" class="dropdown-item">Villa</a>
-                        <a href="#" class="dropdown-item">Apartemen</a>
-                    </div>
-                </div>
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Destinasi</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="#" class="dropdown-item">Bali</a>
-                        <a href="#" class="dropdown-item">Yogyakarta</a>
-                        <a href="" class="dropdown-item">Raja ampat</a>
-                        <a href="" class="dropdown-item">Pulau Komodo</a>
-                    </div>
-                </div>
+                                    <li class="sub-menu sub-menu-1">
+                                        <a href="#">Blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-post.html">Blog Poast</a></li>
 
-                <div class="nav-item dropdown" style="padding-right:50px">
-                    @*@{ string pes = User.GetUsername();
-                        if (pes != "")
-                        {*@
-            <a href="@Url.Action("Create","Bus")">
-                <button class="float-lg-right" formtarget="_blank">Memesan</button>
-            </a> } }
-                </div>
-
-                @*@{ string cek = User.GetUsername();
-                    if (cek != "")
-                    {*@
-        <a href="@Url.Action("Logout", "Akun", new { id=""})"
-           class="bi bi-box-arrow-right nav-link px-lg-3 py-3 py-lg-4" title="Keluar" style="color:red"
-           onclick="if (!confirm('\n\nYakin ingin keluar')){ return false; }">
-            Keluar
-        </a> } }
-            </nav>
-        </div>
-        <!-- Navbar End -->
-        <!-- Header Start -->
-        <div class="container-fluid header p-0" style="background-color:darkcyan">
-            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                <div class="col-md-6 p-5 mt-lg-5">
-                    @*<h1 class="display-5 animated fadeIn mb-4"><span class="text-primary">Selamat datang</span> di TravelingYuk <b class="text-primary">@User.GetUsername()</b></h1><br />*@
-
-                    @*@{ string ck = User.GetUsername();
-                        if (ck == "")
-                        {*@
-            <a asp-controller="Akun" asp-action="Masuk" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Log in & Sign in</a> } }
-                </div>
-
-                <div class="col-md-6 animated fadeIn">
-                    <div class="header-carousel">
-                        <div class="owl-carousel-item">
-                            <img class="img-fluid" src="~/img/wa.jpg" alt="">
+                                        </ul>
+                                    </li>
+                                    <li><a href="index-6.html">contacts</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-        <!-- Search Start -->
-        <div class="container-fluid bg-dark mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+
+        <div id="slider_wrapper">
+            <div id="slider" class="clearfix">
+                <div id="camera_wrap">
+                    <div data-src="http://via.placeholder.com/1600x823">
+                        <div class="camera_caption fadeIn">
+                            <div class="txt1">Your Travel Guide</div>
+                            <div class="txt2">family tours from $1100</div>
+                        </div>
+                    </div>
+
+                    <div data-src="http://via.placeholder.com/1600x823">
+                        <div class="camera_caption fadeIn">
+                            <div class="txt1">Your Travel Guide</div>
+                            <div class="txt2">caucasus vacation from $490</div>
+                        </div>
+                    </div>
+
+                    <div data-src="http://via.placeholder.com/1600x823">
+                        <div class="camera_caption fadeIn">
+                            <div class="txt1">Your Travel Guide</div>
+                            <div class="txt2">fantastic haway from $500</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="menu_splash">
+                <ul id="menu_splash" class="clearfix">
+                    <li class="nav1">
+                        <a href="#" class="rollover">
+                            <div class="cube">
+                                <div class="front">
+                                    <img src="images/ic1.png" alt="" class="img_icon">
+                                    <div class="txt1">Destinations</div>
+                                </div>
+                                <div class="back">
+                                    <img src="images/ic1.png" alt="" class="img_icon">
+                                    <div class="txt1">Destinations</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav2">
+                        <a href="#" class="rollover">
+                            <div class="cube">
+                                <div class="front">
+                                    <img src="images/ic2.png" alt="" class="img_icon">
+                                    <div class="txt1">Air Tickets</div>
+                                </div>
+                                <div class="back">
+                                    <img src="images/ic2.png" alt="" class="img_icon">
+                                    <div class="txt1">Air Tickets</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav3">
+                        <a href="#" class="rollover">
+                            <div class="cube">
+                                <div class="front">
+                                    <img src="images/ic3.png" alt="" class="img_icon">
+                                    <div class="txt1">Hot Tours</div>
+                                </div>
+                                <div class="back">
+                                    <img src="images/ic3.png" alt="" class="img_icon">
+                                    <div class="txt1">Hot Tours</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav4">
+                        <a href="#" class="rollover">
+                            <div class="cube">
+                                <div class="front">
+                                    <img src="images/ic4.png" alt="" class="img_icon">
+                                    <div class="txt1">Hotels</div>
+                                </div>
+                                <div class="back">
+                                    <img src="images/ic4.png" alt="" class="img_icon">
+                                    <div class="txt1">Hotels</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="slogan1">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <div class="slogan1_inner">
+                            <div class="txt1">Start Your Trip With Us</div>
+                            <div class="txt2">Popular destinations and greate customer service</div>
+                            <div class="txt3">
+                                Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat consectetuer adipiscing elit.
+                            </div>
+                            <div class="txt4 clearfix"><a href="#" class="find1">Find the Tour</a><a href="#" class="request1">Request Estimate</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slider3_wrapper">
             <div class="container">
                 @RenderBody()
             </div>
         </div>
-        <!-- Search End -->
-        <!-- Category Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Pilihan Penginapan</h1>
-                    <p>TravelingYuk menyediakan 3 buah penginapan yang sudah terjamin dan terpercaya yang bisa anda pesan langsung dari website ini sehingga memudahkan anda dalam melakukan check-in dan check-out</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
-                            <div class="rounded p-4">
-                                <div class="icon mb-3">
-                                    <img class="img-fluid" src="~/img/icon-house.png" alt="Icon">
-                                </div>
-                                <h6>Hotel</h6>
-                                <span>123 Hotel</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
-                            <div class="rounded p-4">
-                                <div class="icon mb-3">
-                                    <img class="img-fluid" src="~/img/icon-villa.png" alt="Icon">
-                                </div>
-                                <h6>Villa</h6>
-                                <span>123 Villa</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
-                            <div class="rounded p-4">
-                                <div class="icon mb-3">
-                                    <img class="img-fluid" src="~/img/icon-apartment.png" alt="Icon">
-                                </div>
-                                <h6>Apartmen</h6>
-                                <span>123 Apartemen</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Category End -->
-        <!-- Property List Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-0 gx-5 align-items-end">
-                    <div class="col-lg-6">
-                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
-                            <h1 class="mb-3">Gambaran Tempat Menginap</h1>
-                            <p>ini adalah beberapa penampakan Hotel, Villa ataupun Apartemen yang tersedia di TravelingYuk, menarik bukan? yuk langsung coba check-in!</p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                        <div class="row g-4">
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-1.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Appartment</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">Rp.4.000.000 / Hari</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-2.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Villa</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-3.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Office</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-4.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Building</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-5.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Home</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-6.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
+        <div id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="span9">
+
+                        <h1>Welcome to traveler</h1>
+
+                        <h3>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</h3>
+
+                        <div class="thumb1">
+                            <div class="thumbnail clearfix">
+                                <figure class="img-polaroid"><img src="http://via.placeholder.com/208x134" alt=""></figure>
+                                <div class="caption">
+                                    <p>
+                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat consectetuer adipiscing elit. Nunc suscipit.
+                                    </p>
+                                    <a href="#" class="button1">read more</a>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <div id="tab-2" class="tab-pane fade show p-0">
-                        <div class="row g-4">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-1.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Appartment</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-2.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Villa</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-3.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Office</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-4.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Building</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-5.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Home</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-6.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab-3" class="tab-pane fade show p-0">
-                        <div class="row g-4">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-1.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Appartment</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-2.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Villa</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-3.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Office</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-4.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Building</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-5.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Sell</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Home</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href=""><img class="img-fluid" src="~/img/property-6.jpg" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$12,345</h5>
-                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
-                            </div>
-                        </div>
+                    <div class="span3">
+
+                        <h2>Services</h2>
+
+                        <ul class="ul1">
+                            <li><a href="#">Tour reservation</a></li>
+                            <li><a href="#">Insurance</a></li>
+                            <li><a href="#">Tickets online</a></li>
+                            <li><a href="#">Hotel booking</a></li>
+                            <li><a href="#">Consultation</a></li>
+                            <li><a href="#">Transfer</a></li>
+                        </ul>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Property List End -->
-        <!-- Team Start -->
-        <div class="container-xxl py-5">
+
+        <div class="bot1">
             <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Investor</h1>
-                    <p>TravelingYuk memiliki beberapa investor besar yang sudah lama menjalin kerjasama dengan kami untuk membesarkan dan memajukan TravelingYuk</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="~/img/Doni Salmanan.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href="https://web.facebook.com/profile.php?id=100004873922717" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://twitter.com/doni_salmanan" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://www.instagram.com/donisalmanan/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Doni Salmanan</h5>
-                                <small>Tradder</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="~/img/Joe Taslim.jpeg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href="https://web.facebook.com/joetaslim.page" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://twitter.com/TaslimFan" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://www.instagram.com/joe_taslim/" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Joe Taslim</h5>
-                                <small>Aktor</small>
-                            </div>
+                <div class="row">
+                    <div class="span3">
+                        <div class="bot1_title">follow us</div>
+                        <div class="social_wrapper">
+                            <ul class="social clearfix">
+                                <li>
+                                    <a href="#"><img src="images/social_ic1.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/social_ic2.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/social_ic3.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/social_ic4.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/social_ic5.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/social_ic6.png"></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="~/img/Raffi Ahmad.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href="https://web.facebook.com/RaffiAhmadLagi" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://twitter.com/FansterRaffiahh" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href="https://www.instagram.com/raffinagita1717/"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Raffi Ahmad</h5>
-                                <small>Artis</small>
-                            </div>
+                    <div class="span3">
+                        <div class="bot1_title">Destinations</div>
+                        <ul class="ul0">
+                            <li><a href="#">Nam elit magna, hendrerit</a></li>
+                            <li><a href="#">Quisque nullatibulum libero</a></li>
+                            <li><a href="#">Scelerisque eget, malesuada at</a></li>
+                            <li><a href="#">Vivamus eget niiam cursus leo</a></li>
+                            <li><a href="#">Nulla facilisinean nec eros</a></li>
+                        </ul>
+                    </div>
+                    <div class="span3">
+                        <div class="bot1_title">Links</div>
+                        <ul class="ul0">
+                            <li><a href="#">Nam elit magna, hendrerit</a></li>
+                            <li><a href="#">Quisque nullatibulum libero</a></li>
+                            <li><a href="#">Scelerisque eget, malesuada at</a></li>
+                            <li><a href="#">Vivamus eget niiam cursus leo</a></li>
+                            <li><a href="#">Nulla facilisinean nec eros</a></li>
+                        </ul>
+                    </div>
+                    <div class="span3">
+                        <div class="bot1_title">Contacts</div>
+                        <div class="bot1_txt1">
+                            Call for more information:<br>
+                            <span>1 800 123 4567</span><br> 8901 Marmora Road,<br> Glasgow, D04 89GR.<br> Telephone: +1 800 123 1234<br> E-mail: <a href="#">mail@bteamny.com</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Team End -->
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-4 col-md-6">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Universitas Nasional Pasim, jl. Dakota No.8a Sukaraja Bandung, West Java, Indonesia</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 822 180 509 00</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>yusfajulian44@gmail.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h5 class="text-white mb-4">examples of available villas</h5>
-                        <div class="row g-2 pt-2">
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-1.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-2.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-3.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-4.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-5.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="~/img/property-6.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+        <footer>
             <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-                            Copyright © 2022 TravelingYuk
-                        </div>
+                <div class="row">
+                    <div class="span12">
+                        <div class="copyright">Copyright © 2017 Travel Guide. All rights reserved.&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="#">Privacy Policy</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="#">Terms of Use</a></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End -->
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        </footer>
+
+
     </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/wow/wow.min.js"></script>
-    <script src="~/lib/easing/easing.min.js"></script>
-    <script src="~/lib/waypoints/waypoints.min.js"></script>
-    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="~/js/main.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 
 </html>

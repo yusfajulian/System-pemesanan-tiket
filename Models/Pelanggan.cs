@@ -10,9 +10,13 @@ namespace Traveler.Models
     {
         [Key]
         public string nik { get; set; }
+        [Required]
         public string nama_pelanggan { get; set; }
+        [Required]
         public bool kartu_vaksin { get; set; }
+        [Required]
         public string no_telp { get; set; }
+        [Required]
         public string email { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Traveler.Data;
+using Traveler.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Traveler.Models;
 
-namespace Traveler.Controllers
+namespace QUERY.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,20 +20,31 @@ namespace Traveler.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        // return view UntukValidasi dengan arrow function
+        //public IActionResult UntukFormValidasi() => View();
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        //public IActionResult FromAPI() => View();
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //public IActionResult Lokasi() => View();
+
+        public IActionResult Index() => View();
+
+        public IActionResult Dilarang() => View();
+
+        //[HttpPost]
+        //public IActionResult UntukFormValidasi(ContohModelUntukValidasi data)
+        //{
+        //    if (ModelState.IsValid) return Ok(data);
+        //    return View(data);
+        //}
+       
+        //public string CekValidasi([RegularExpression(@"^[0-9]*$")] string Cek)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        return Cek;
+        //    }
+        //    return "salah, harus angka";
+        //}
     }
 }

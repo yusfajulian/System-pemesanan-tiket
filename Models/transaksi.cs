@@ -14,6 +14,9 @@ namespace Traveler.Models
         public string dari { get; set; }
         public string ke { get; set; }
         public int jml_orang { get; set; }
+        public DateTime tgl_transaksi { get; set; }
+        public string jam_berangkat { get; set; }
+        public string jam_sampai { get; set; }
         public int harga { get; set; }
         public string type_transaksi { get; set; }
     }

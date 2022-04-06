@@ -10,7 +10,7 @@ namespace Traveler.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
+           : base(options)
         {
 
         }
@@ -26,5 +26,8 @@ namespace Traveler.Data
         public virtual DbSet<Jam_travel> Tb_JamTravel { get; set; }
         public virtual DbSet<Pelanggan> Tb_Pelanggan { get; set; }
         public virtual DbSet<transaksi> Tb_Transaksi { get; set; }
+        public virtual DbSet<Roles> Tb_Roles { get; set; }
+        public virtual DbSet<User> Tb_User { get; set; }
+        public virtual DbSet<Email> Tb_Email { get; set; }
     }
 }

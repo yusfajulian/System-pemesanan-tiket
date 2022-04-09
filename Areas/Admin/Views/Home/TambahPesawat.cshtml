@@ -1,0 +1,57 @@
+﻿@model Pesawat
+@{
+    Layout = "_LayoutAkun";
+}
+
+<h4 class="text-center">Tambah Data Pesawat</h4>
+<hr />
+<br />
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="TambahPesawat" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input type="file" name="fotonya" accept=".jpg,.png" multiple class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Maskapai" class="control-label"></label>
+                <input asp-for="Maskapai" placeholder="Masukan Judul" class="form-control" />
+                <span asp-validation-for="Maskapai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Bandara_asal" class="control-label"></label>
+                <input asp-for="Bandara_asal" placeholder="Masukan Content" class="form-control" />
+                <span asp-validation-for="Bandara_asal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Bandara_tujuan" class="control-label"></label>
+                <input asp-for="Bandara_tujuan" placeholder="Masukan Content" class="form-control" />
+                <span asp-validation-for="Bandara_tujuan" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="berangkat" class="control-label"></label>
+                <input asp-for="berangkat" class="form-control" />
+                <span asp-validation-for="berangkat" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="harga" class="control-label"></label>
+                <input asp-for="harga" class="form-control" />
+                <span asp-validation-for="harga" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <input asp-controller="Home" asp-action="Das" type="submit" value="Cancel" class="btn btn-warning float-xl-right" />
+            </div>
+        </form>
+    </div>
+</div>
+

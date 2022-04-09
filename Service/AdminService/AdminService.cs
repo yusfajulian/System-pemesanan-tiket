@@ -20,9 +20,25 @@ namespace Traveler.Service.AdminService
             _file = file;
         }
 
+        public async Task<bool> TambahKereta(Kereta parameter, IFormFile fotonya)
+        {
+            parameter.kode_kereta = Helper.BuatPrimary.buatPrimary();
+            parameter.image = await _file.SimpanFile(fotonya);
+
+            return await _AdminRevo.TambahKereta(parameter);
+        }
+
         public async Task<bool> TambahPelanggan(Pelanggan baru)
         {
             return await _AdminRevo.TambahPelanggan(baru);
+        }
+
+        public async Task<bool> TambahPesawat(Pesawat parameter, IFormFile fotonya)
+        {
+            parameter.kode_pesawat = Helper.BuatPrimary.buatPrimary();
+            parameter.image = await _file.SimpanFile(fotonya);
+
+            return await _AdminRevo.TambahPesawat(parameter);
         }
 
         public async Task<bool> TambahTransaksi(transaksi transaksi, string data,string id)
@@ -34,13 +50,37 @@ namespace Traveler.Service.AdminService
             return await _AdminRevo.TambahTransaksi(transaksi);
         }
 
-        public List<Kereta> TampilSemuaKereta()
+        public async Task<bool> TambahTravel(Travel parameter, IFormFile fotonya)
         {
-            return _AdminRevo.TampilSemuaKereta().Result;
+            parameter.kode_travel = Helper.BuatPrimary.buatPrimary();
+            parameter.image = await _file.SimpanFile(fotonya);
+
+            return await _AdminRevo.TambahTravel(parameter);
         }
-        public List<Pesawat> TampilSemuaPesawat()
+
+        public Task<List<Kereta>> TampilSemuaKereta()
         {
-            return _AdminRevo.TampilSemuaPesawat().Result;
+            return _AdminRevo.TampilSemuaKereta();
+        }
+
+        public Task<List<Pelanggan>> TampilSemuaPelanggan()
+        {
+            return _AdminRevo.TampilSemuaPelanggan();
+        }
+
+        public Task<List<Pesawat>> TampilSemuaPesawat()
+        {
+            return _AdminRevo.TampilSemuaPesawat();
+        }
+
+        public Task<List<transaksi>> TampilSemuaTransaksi()
+        {
+            return _AdminRevo.TampilSemuaTransaksi();
+        }
+
+        public Task<List<Travel>> TampilSemuaTravel()
+        {
+            return _AdminRevo.TampilSemuaTravel();
         }
     }
 }

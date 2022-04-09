@@ -9,9 +9,15 @@ namespace Traveler.Service.AdminService
 {
     public interface IAdminService
     {
-        List<Pesawat> TampilSemuaPesawat();
+        Task<List<Pesawat>> TampilSemuaPesawat();
         Task<bool> TambahPelanggan(Pelanggan baru);
         Task<bool> TambahTransaksi(transaksi transaksi, string data, string id);
-        List<Kereta> TampilSemuaKereta();
+        Task<List<Kereta>> TampilSemuaKereta();
+        Task<List<Travel>> TampilSemuaTravel();
+        Task<List<transaksi>> TampilSemuaTransaksi();
+        Task<List<Pelanggan>> TampilSemuaPelanggan();
+        Task<bool> TambahPesawat(Pesawat parameter, IFormFile fotonya);
+        Task<bool> TambahKereta(Kereta parameter, IFormFile fotonya);
+        Task<bool> TambahTravel(Travel parameter, IFormFile fotonya);
     }
 }

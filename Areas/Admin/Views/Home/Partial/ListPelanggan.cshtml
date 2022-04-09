@@ -1,0 +1,48 @@
+﻿@model AdminDashBoard
+
+<h3>Data Pelanggan</h3>
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>NAMA</th>
+            <th>NO TELP</th>
+            <th>EMAIL</th>
+            <th>TANGGAL TRANSIT</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.pelanggan)
+        {
+            <tr>
+                <td>@item.nama_pelanggan</td>
+                <td>@item.no_telp</td>
+                <td>@item.email</td>
+                <td>@item.tanggal_berangkat</td>
+                <td>
+                    <button style="background-color: aqua">
+                        <a class="bi bi-trash" title="Detail" style="color:black;"
+                           onclick="if (!confirm('DETAIL\n\n DATA:\n NIK : @item.nik \n NAMA : @item.nama_pelanggan \n NO TELP : @item.no_telp\n EMAIL : @item.email\n TANGGAL TRANSIT : @item.tanggal_berangkat')) { return false; }">
+                            Detail
+                        </a>
+                    </button>
+                </td>
+                <td>
+                    <button style="background-color: red;">
+                        <a asp-action="hapus" asp-route-id="@item.nik"
+                           class="bi bi-trash" title="keluar" style="color:black;"
+                           onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n NIK : @item.nik \n NAMA : @item.nama_pelanggan \n NO TELP : @item.no_telp\n EMAIL : @item.email\n TANGGAL TRANSIT : @item.tanggal_berangkat')) { return false;}">
+                            Hapus
+                        </a>
+                    </button>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />

@@ -10,6 +10,7 @@ using Traveler.Service.EmailService;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using System.Web.Helpers;
 
 namespace Traveler.Controllers
 {
@@ -37,7 +38,7 @@ namespace Traveler.Controllers
                 Roles cariRoles = _context.Tb_Roles.FirstOrDefault(x => x.Id == "2");
 
                 parameter.Roles = cariRoles;
-
+                
                 _context.Tb_User.Add(parameter);
                 _context.SaveChanges();
 
@@ -113,11 +114,11 @@ namespace Traveler.Controllers
 
                     if (username.Roles.Id == "1")
                     {
-                        return Redirect("/Admin/Home");
+                        return Redirect("/Admin/Home/Das");
                     }
                     else if (username.Roles.Id == "2")
                     {
-                        return Redirect("/User/Home");
+                        return Redirect("/User/Home/Index");
                     }
 
                     return RedirectToAction(controllerName: "Home", actionName: "Index");

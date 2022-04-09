@@ -1,1 +1,25 @@
-﻿<h1>ini Admin</h1>
+﻿@model AdminDashBoard
+
+@*@await Html.PartialAsync("Partial/ListTransaksi")*@
+
+@await Html.PartialAsync("Partial/ListPelanggan")
+<hr />
+@await Html.PartialAsync("Partial/ListPesawat")
+<h6>
+    <a asp-action="TambahPesawat" class="text-black">Tambah Data pesawat</a>
+</h6>
+<br />
+<hr />
+@await Html.PartialAsync("Partial/ListKereta")
+<h6>
+    <a asp-action="TambahKereta">Tambah Data Kereta</a>
+</h6>
+<br />
+<hr />
+
+@await Html.PartialAsync("Partial/ListTravel")
+<h6>
+    <a asp-action="TambahTravel">Tambah Data Travel</a>
+</h6>
+<br />
+<hr />

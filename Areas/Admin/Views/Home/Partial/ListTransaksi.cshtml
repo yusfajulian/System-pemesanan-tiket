@@ -1,0 +1,48 @@
+﻿@*@model AdminDashBoard
+
+<h3>Daftar Pesawat</h3>
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>NO TRANSAKSI</th>
+            <th>NAMA PELANGGAN</th>
+            <th>TRANSIT</th>
+            <th>DARI</th>
+            <th>KE</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Transaksi)
+        {
+        <tr>
+            <td>@item.id_transaksi</td>
+            <td>@item.Pelanggan.nik</td>
+            <td>@item.Pelanggan.tanggal_berangkat</td>
+            <td>@item.pesawat.Bandara_asal</td>
+            <td>@item.pesawat.Bandara_tujuan</td>
+            <td>
+                <button style="background-color: aqua">
+                    <a class="bi bi-trash" title="Detail" style="color:black;"
+                       onclick="if (!confirm('DETAIL\n\n DATA:\n NO TRANSAKSI : @item.id_transaksi \n NAMA PELANGGAN : @item.Pelanggan.nama_pelanggan \n TRANSIT :@item.Pelanggan.tanggal_berangkat BANDARA ASAL\n @item.pesawat.Bandara_asal\n BANDARA TUJUAN : @item.pesawat.Bandara_tujuan')) { return false; }">
+                        Detail
+                    </a>
+                </button>
+            </td>
+            <td>
+                <button style="background-color: red;">
+                    <a asp-action="hapus" asp-route-id="@item.id_transaksi"
+                       class="bi bi-trash" title="keluar" style="color:black;"
+                       onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n NO TRANSAKSI : @item.id_transaksi \n NAMA PELANGGAN : @item.Pelanggan.nama_pelanggan \n TRANSIT :@item.Pelanggan.tanggal_berangkat BANDARA ASAL\n @item.pesawat.Bandara_asal\n BANDARA TUJUAN : @item.pesawat.Bandara_tujuan')) { return false;}">
+                        Hapus
+                    </a>
+                </button>
+            </td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>*@

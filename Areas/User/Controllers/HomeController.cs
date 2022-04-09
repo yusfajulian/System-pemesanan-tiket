@@ -23,13 +23,11 @@ namespace Traveler.Areas.User.Controllers
     [Area("User")]
     public class HomeController : Controller
     {
-        private readonly AppDbContext _context;
         private readonly IAdminService _Admin;
         private readonly EmailService _email;
-        public HomeController(IAdminService s, AppDbContext c, EmailService e)
+        public HomeController(IAdminService s, EmailService e)
         {
             _Admin = s;
-            _context = c;
             _email = e;
         }
 
@@ -40,9 +38,12 @@ namespace Traveler.Areas.User.Controllers
 
         public IActionResult FromAPIPesawat() => View();
 
-        public IActionResult Pesawat()
+        public async Task<IActionResult> Pesawat()
         {
-            return View(_Admin.TampilSemuaPesawat());
+            var banyakData = new AdminDashBoard();
+
+            banyakData.pesawat = await _Admin.TampilSemuaPesawat();
+            return View(banyakData);
         }
         [Authorize]
         public IActionResult Pelanggan()
@@ -67,9 +68,21 @@ namespace Traveler.Areas.User.Controllers
             }
             return View(parameter);
         }
-        public IActionResult Kereta()
+        public async Task<IActionResult> Kereta()
         {
-            return View(_Admin.TampilSemuaKereta());
+            var banyakData = new AdminDashBoard();
+
+            banyakData.kereta = await _Admin.TampilSemuaKereta();
+            
+            return View(banyakData);
+        }
+
+        public async Task<IActionResult> Travel()
+        {
+            var banyakData = new AdminDashBoard();
+
+            banyakData.travel = await _Admin.TampilSemuaTravel();
+            return View(banyakData);
         }
     }
 }

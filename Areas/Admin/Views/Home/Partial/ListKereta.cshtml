@@ -1,0 +1,54 @@
+﻿@model AdminDashBoard
+
+<h3>Datrar Kereta</h3>
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>IMAGE</th>
+            <th>NAMA KERETA</th>
+            <th>STASIUN ASAL</th>
+            <th>STASIUN TUJUAN</th>
+            <th>WAKTU KEBERANGKATAN</th>
+            <th>HARGA</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.kereta)
+        {
+            <tr>
+                <td><img src="@item.image" alt="fotonya" width="100px" /></td>
+                <td>@item.nama_kereta</td>
+                <td>@item.stasiun_asal</td>
+                <td>@item.stasiun_tujuan</td>
+                <td>@item.berangkat</td>
+                <td>@item.harga</td>
+                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Ubah" asp-route-id="@item.kode_kereta">Edit</a></button></td>
+                <td>
+                    <button style="background-color: aqua">
+                        <a class="bi bi-trash" title="Detail" style="color:black;"
+                           onclick="if (!confirm('DETAIL\n\n DATA:\n : @item.image \n KODE KERETA : @item.kode_kereta \n NAMA KERETA : @item.nama_kereta\n STASIUN ASAL : @item.stasiun_asal\n STASIUN TUJUAN : @item.stasiun_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false; }">
+                            Detail
+                        </a>
+                    </button>
+                </td>
+                <td>
+                    <button style="background-color: red;">
+                        <a asp-action="hapus" asp-route-id="@item.kode_kereta"
+                           class="bi bi-trash" title="keluar" style="color:black;"
+                           onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n @item.image \n KODE KERETA : @item.kode_kereta \n NAMA KERETA : @item.nama_kereta\n STASIUN ASAL : @item.stasiun_asal\n STASIUN TUJUAN : @item.stasiun_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false;}">
+                            Hapus
+                        </a>
+                    </button>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />

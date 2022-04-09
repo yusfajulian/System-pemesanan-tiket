@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Kereta>
+﻿@model AdminDashBoard
 
 <h3 class="bi-align-center text-warning">Daftar Tiket Yang Tersedia</h3>
 <hr />
@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.kereta)
         {
             <tr>
                 <td><img src="@item.image" alt="fotonya" width="100px" /></td>

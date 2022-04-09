@@ -6,9 +6,9 @@
     <thead>
         <tr>
             <th>IMAGE</th>
-            <th>MASKAPAI</th>
-            <th>BANDARA ASAL</th>
-            <th>BANDARA TUJUAN</th>
+            <th>NAMA TRAVEL</th>
+            <th>KOTA ASAL</th>
+            <th>KOTA TUJUAN</th>
             <th>WAKTU KEBERANGKATAN</th>
             <th>HARGA</th>
             <th></th>
@@ -17,13 +17,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.pesawat)
+        @foreach (var item in Model.travel)
         {
             <tr>
                 <td><img src="@item.image" alt="fotonya" width="100px" /></td>
-                <td>@item.Maskapai</td>
-                <td>@item.Bandara_asal</td>
-                <td>@item.Bandara_tujuan</td>
+                <td>@item.nama_travel</td>
+                <td>@item.kota_asal</td>
+                <td>@item.kota_tujuan</td>
                 <td>@item.berangkat</td>
                 <td>@item.harga</td>
                 <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Pelanggan">Pesan</a></button></td>

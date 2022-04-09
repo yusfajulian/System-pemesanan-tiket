@@ -1,0 +1,54 @@
+﻿@model AdminDashBoard
+
+<h3>Daftar Travel</h3>
+<hr />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>IMAGE</th>
+            <th>NAMA TRAVEL</th>
+            <th>KOTA ASAL</th>
+            <th>KOTA TUJUAN</th>
+            <th>WAKTU KEBERANGKATAN</th>
+            <th>HARGA</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.travel)
+        {
+            <tr>
+                <td><img src="@item.image" alt="fotonya" width="100px" /></td>
+                <td>@item.nama_travel</td>
+                <td>@item.kota_asal</td>
+                <td>@item.kota_tujuan</td>
+                <td>@item.berangkat</td>
+                <td>@item.harga</td>
+                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Ubah" asp-route-id="@item.kode_travel">Edit</a></button></td>
+                <td>
+                    <button style="background-color: aqua">
+                        <a class="bi bi-trash" title="Detail" style="color:black;"
+                           onclick="if (!confirm('DETAIL\n\n DATA:\n : @item.image \n NAMA TRAVEL : @item.nama_travel \n KOTA ASAL : @item.kota_asal\n KOTA TUJUAN : @item.kota_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false; }">
+                            Detail
+                        </a>
+                    </button>
+                </td>
+                <td>
+                    <button style="background-color: red;">
+                        <a asp-action="hapus" asp-route-id="@item.kode_travel"
+                           class="bi bi-trash" title="keluar" style="color:black;"
+                           onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n @item.image \n NAMA TRAVEL : @item.nama_travel \n KOTA ASAL : @item.kota_asal\n KOTA TUJUAN : @item.kota_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false;}">
+                            Hapus
+                        </a>
+                    </button>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />

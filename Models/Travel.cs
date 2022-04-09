@@ -10,6 +10,12 @@ namespace Traveler.Models
     {
         [Key]
         public string kode_travel { get; set; }
-        public string Tempat { get; set; }
+        public string nama_travel { get; set; }
+        public string kota_asal { get; set; }
+        public string kota_tujuan { get; set; }
+        public DateTime berangkat { get; set; }
+        public string image { get; set; }
+        public int harga { get; set; }
+
     }
 }

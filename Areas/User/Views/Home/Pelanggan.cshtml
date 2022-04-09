@@ -27,6 +27,12 @@
             </div><br />
 
             <div class="form-group">
+                <label asp-for="tanggal_berangkat" class="control-label">TANGGAL BERANGKAT</label>
+                <input asp-for="tanggal_berangkat" class="form-control" />
+                <span asp-validation-for="tanggal_berangkat" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
                 <label asp-for="email" class="control-label">EMAIL</label>
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
@@ -39,7 +45,7 @@
             </div><br />
 
             <div class="form-group">
-                <input type="submit" value="Pesan" id="pesan-btn" class="btn btn-primary"/>
+                <input type="submit" value="Pesan" id="pesan-btn" class="btn btn-primary" />
                 <input asp-controller="Home" asp-action="Index" type="submit" value="Kembali" class="btn btn-primary float-xl-right" />
             </div><br />
         </form>

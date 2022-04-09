@@ -17,160 +17,32 @@ namespace Traveler.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.15");
 
-            modelBuilder.Entity("Traveler.Models.Email", b =>
-                {
-                    b.Property<string>("NamaClientnya")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("EmailKita")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PasswordEmailKita")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Portnya")
-                        .HasColumnType("int");
-
-                    b.HasKey("NamaClientnya");
-
-                    b.ToTable("Tb_Email");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Jam_kereta", b =>
-                {
-                    b.Property<string>("id_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("jam_berangkat")
-                        .HasColumnType("text");
-
-                    b.Property<string>("jam_sampai")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_jam");
-
-                    b.ToTable("Tb_JamKereta");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Jam_pesawat", b =>
-                {
-                    b.Property<string>("id_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("jam_berangkat")
-                        .HasColumnType("text");
-
-                    b.Property<string>("jam_sampai")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_jam");
-
-                    b.ToTable("Tb_JamPesawat");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Jam_travel", b =>
-                {
-                    b.Property<string>("id_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("jam_berangkat")
-                        .HasColumnType("text");
-
-                    b.Property<string>("jam_sampai")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_jam");
-
-                    b.ToTable("Tb_JamTravel");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Jenis_kereta", b =>
-                {
-                    b.Property<string>("id_jenisker")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("nama")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_jenisker");
-
-                    b.ToTable("Tb_JenisKereta");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Jenis_travel", b =>
-                {
-                    b.Property<string>("id_jenistrav")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("nama")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_jenistrav");
-
-                    b.ToTable("Tb_JenisTravel");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Kelas", b =>
-                {
-                    b.Property<string>("id_kelas")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("nama")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_kelas");
-
-                    b.ToTable("Kelas");
-                });
-
             modelBuilder.Entity("Traveler.Models.Kereta", b =>
                 {
                     b.Property<string>("kode_kereta")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("dari")
-                        .HasColumnType("text");
+                    b.Property<DateTime>("berangkat")
+                        .HasColumnType("datetime");
 
                     b.Property<int>("harga")
                         .HasColumnType("int");
 
-                    b.Property<string>("jam_Keretaid_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("jenis_Keretaid_jenisker")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<int>("jml_kursi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ke")
+                    b.Property<string>("image")
                         .HasColumnType("text");
 
-                    b.Property<string>("kelasid_kelas")
-                        .HasColumnType("varchar(767)");
+                    b.Property<string>("nama_kereta")
+                        .HasColumnType("text");
+
+                    b.Property<string>("stasiun_asal")
+                        .HasColumnType("text");
+
+                    b.Property<string>("stasiun_tujuan")
+                        .HasColumnType("text");
 
                     b.HasKey("kode_kereta");
 
-                    b.HasIndex("jam_Keretaid_jam");
-
-                    b.HasIndex("jenis_Keretaid_jenisker");
-
-                    b.HasIndex("kelasid_kelas");
-
                     b.ToTable("Tb_Kereta");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Maskapai", b =>
-                {
-                    b.Property<string>("id_maskapai")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("nama")
-                        .HasColumnType("text");
-
-                    b.HasKey("id_maskapai");
-
-                    b.ToTable("Tb_Maskapan");
                 });
 
             modelBuilder.Entity("Traveler.Models.Pelanggan", b =>
@@ -193,6 +65,9 @@ namespace Traveler.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("type")
+                        .HasColumnType("text");
+
                     b.HasKey("nik");
 
                     b.ToTable("Tb_Pelanggan");
@@ -203,34 +78,25 @@ namespace Traveler.Migrations
                     b.Property<string>("kode_pesawat")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("Maskapaiid_maskapai")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("dari")
+                    b.Property<string>("Bandara_asal")
                         .HasColumnType("text");
+
+                    b.Property<string>("Bandara_tujuan")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Maskapai")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("berangkat")
+                        .HasColumnType("datetime");
 
                     b.Property<int>("harga")
                         .HasColumnType("int");
 
-                    b.Property<string>("jam_Pesawatid_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<int>("jml_kursi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ke")
+                    b.Property<string>("image")
                         .HasColumnType("text");
 
-                    b.Property<string>("kelasid_kelas")
-                        .HasColumnType("varchar(767)");
-
                     b.HasKey("kode_pesawat");
-
-                    b.HasIndex("Maskapaiid_maskapai");
-
-                    b.HasIndex("jam_Pesawatid_jam");
-
-                    b.HasIndex("kelasid_kelas");
 
                     b.ToTable("Tb_Pesawat");
                 });
@@ -246,38 +112,6 @@ namespace Traveler.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tb_Roles");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Travel", b =>
-                {
-                    b.Property<string>("kode_travel")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("dari")
-                        .HasColumnType("text");
-
-                    b.Property<int>("harga")
-                        .HasColumnType("int");
-
-                    b.Property<string>("jam_Keretaid_jam")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("jenis_Travelid_jenistrav")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<int>("jml_kursi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ke")
-                        .HasColumnType("text");
-
-                    b.HasKey("kode_travel");
-
-                    b.HasIndex("jam_Keretaid_jam");
-
-                    b.HasIndex("jenis_Travelid_jenistrav");
-
-                    b.ToTable("Tb_Travel");
                 });
 
             modelBuilder.Entity("Traveler.Models.User", b =>
@@ -320,92 +154,16 @@ namespace Traveler.Migrations
                     b.Property<string>("Pelanggannik")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("dari")
-                        .HasColumnType("text");
-
-                    b.Property<int>("harga")
-                        .HasColumnType("int");
-
-                    b.Property<string>("jam_berangkat")
-                        .HasColumnType("text");
-
-                    b.Property<string>("jam_sampai")
-                        .HasColumnType("text");
-
-                    b.Property<int>("jml_orang")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ke")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("tgl_transaksi")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("type_transaksi")
-                        .HasColumnType("text");
+                    b.Property<string>("pesawatkode_pesawat")
+                        .HasColumnType("varchar(767)");
 
                     b.HasKey("id_transaksi");
 
                     b.HasIndex("Pelanggannik");
 
+                    b.HasIndex("pesawatkode_pesawat");
+
                     b.ToTable("Tb_Transaksi");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Kereta", b =>
-                {
-                    b.HasOne("Traveler.Models.Jam_kereta", "jam_Kereta")
-                        .WithMany()
-                        .HasForeignKey("jam_Keretaid_jam");
-
-                    b.HasOne("Traveler.Models.Jenis_kereta", "jenis_Kereta")
-                        .WithMany()
-                        .HasForeignKey("jenis_Keretaid_jenisker");
-
-                    b.HasOne("Traveler.Models.Kelas", "kelas")
-                        .WithMany()
-                        .HasForeignKey("kelasid_kelas");
-
-                    b.Navigation("jam_Kereta");
-
-                    b.Navigation("jenis_Kereta");
-
-                    b.Navigation("kelas");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Pesawat", b =>
-                {
-                    b.HasOne("Traveler.Models.Maskapai", "Maskapai")
-                        .WithMany()
-                        .HasForeignKey("Maskapaiid_maskapai");
-
-                    b.HasOne("Traveler.Models.Jam_pesawat", "jam_Pesawat")
-                        .WithMany()
-                        .HasForeignKey("jam_Pesawatid_jam");
-
-                    b.HasOne("Traveler.Models.Kelas", "kelas")
-                        .WithMany()
-                        .HasForeignKey("kelasid_kelas");
-
-                    b.Navigation("jam_Pesawat");
-
-                    b.Navigation("kelas");
-
-                    b.Navigation("Maskapai");
-                });
-
-            modelBuilder.Entity("Traveler.Models.Travel", b =>
-                {
-                    b.HasOne("Traveler.Models.Jam_kereta", "jam_Kereta")
-                        .WithMany()
-                        .HasForeignKey("jam_Keretaid_jam");
-
-                    b.HasOne("Traveler.Models.Jenis_travel", "jenis_Travel")
-                        .WithMany()
-                        .HasForeignKey("jenis_Travelid_jenistrav");
-
-                    b.Navigation("jam_Kereta");
-
-                    b.Navigation("jenis_Travel");
                 });
 
             modelBuilder.Entity("Traveler.Models.User", b =>
@@ -423,7 +181,13 @@ namespace Traveler.Migrations
                         .WithMany()
                         .HasForeignKey("Pelanggannik");
 
+                    b.HasOne("Traveler.Models.Pesawat", "pesawat")
+                        .WithMany()
+                        .HasForeignKey("pesawatkode_pesawat");
+
                     b.Navigation("Pelanggan");
+
+                    b.Navigation("pesawat");
                 });
 #pragma warning restore 612, 618
         }

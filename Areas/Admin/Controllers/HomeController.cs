@@ -15,5 +15,6 @@ namespace Traveler.Areas.Admin.Controllers
         {
             return View();
         }
+
     }
 }

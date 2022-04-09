@@ -12,7 +12,9 @@ using System.Threading.Tasks;
 using Traveler.Data;
 using Traveler.Models;
 using Traveler.Repository.Admin;
+using Traveler.Service.AdminService;
 using Traveler.Service.EmailService;
+using Traveler.Service.File;
 
 namespace Traveler
 {
@@ -44,10 +46,10 @@ namespace Traveler
             services.AddScoped<IAdminRevository, AdminRevository>();
 
             // Mendaftarkan Service
-            //services.AddScoped<, >();
+            services.AddScoped <IAdminService, AdminService> ();
 
             //// daftar fileService
-            //services.AddTransient<FileService>();
+            services.AddTransient<FileService>();
 
             // Mendaftarkan EmailServe
             services.AddTransient<EmailService>();

@@ -10,7 +10,13 @@ namespace Traveler.Repository.Admin
     {
         Task<List<transaksi>> TampilSemuaDataTransaksi();
         Task<List<Pesawat>> TampilSemuaPesawat();
-        Task<List<Jam_pesawat>> TampilSemuaJampesawat();
-        Task<List<Maskapai>> TampilSemuaMaskapai();
+        Task<User> CariUsername(string username);
+        Task<bool> TambahPelanggan(Pelanggan baru);
+        Task<bool> TambahTransaksi(transaksi baru);
+        Task<Pelanggan> CariId(string id);
+        Task<Pesawat> CariIdPesawat(string id);
+        Task<List<Kereta>> TampilSemuaKereta();
+
     }
 }
+

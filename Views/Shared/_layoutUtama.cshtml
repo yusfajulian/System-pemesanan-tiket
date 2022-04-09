@@ -10,6 +10,9 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+    <!-- data table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
     <!-- Favicons -->
     <link href="~/assets/img/logo.png" rel="icon">
     <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -47,8 +50,8 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Pesawat</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Kereta</a></li>
+                    <li><a class="nav-link scrollto" href="/User/Home/Pesawat">Pesawat</a></li>
+                    <li><a class="nav-link scrollto" href="/User/Home/Kereta">Kereta</a></li>
                     <li><a class="nav-link scrollto" href="#about">Travel</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#about">Contact</a></li>
@@ -97,19 +100,10 @@
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
-
-            </div>
-        </section>
-        <!-- End About Section -->
-
-        <section id="contact" class="contact">
-            <div class="container" data-aos="fade-up">
                 @RenderBody()
             </div>
         </section>
-
-
-
+        <!-- End About Section -->
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
@@ -267,6 +261,14 @@
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
 
+    <!-- Data Table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

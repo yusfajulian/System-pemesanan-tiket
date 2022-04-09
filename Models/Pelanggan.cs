@@ -18,5 +18,6 @@ namespace Traveler.Models
         public string no_telp { get; set; }
         [Required]
         public string email { get; set; }
+        public string type { get; set; }
     }
 }

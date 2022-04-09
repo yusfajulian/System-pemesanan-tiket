@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,9 @@ namespace Traveler.Service.AdminService
 {
     public interface IAdminService
     {
-        Task<List<Pesawat>> TampilSemuaPesawat();
+        List<Pesawat> TampilSemuaPesawat();
+        Task<bool> TambahPelanggan(Pelanggan baru);
+        Task<bool> TambahTransaksi(transaksi transaksi, string data, string id);
+        List<Kereta> TampilSemuaKereta();
     }
 }

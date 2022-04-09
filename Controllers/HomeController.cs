@@ -19,24 +19,9 @@ namespace QUERY.Controllers
         {
             _logger = logger;
         }
-
-        // return view UntukValidasi dengan arrow function
-        //public IActionResult UntukFormValidasi() => View();
-
-        //public IActionResult FromAPI() => View();
-
-        //public IActionResult Lokasi() => View();
-
         public IActionResult Index() => View();
 
         public IActionResult Dilarang() => View();
-
-        //[HttpPost]
-        //public IActionResult UntukFormValidasi(ContohModelUntukValidasi data)
-        //{
-        //    if (ModelState.IsValid) return Ok(data);
-        //    return View(data);
-        //}
        
         //public string CekValidasi([RegularExpression(@"^[0-9]*$")] string Cek)
         //{

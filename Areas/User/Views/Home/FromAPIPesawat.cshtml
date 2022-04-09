@@ -1,0 +1,32 @@
+﻿<table class="table" id="tb-datatable">
+    <thead class="table">
+        <tr>
+            <td>Id</td>
+            <td>Bandara</td>
+        </tr>
+    </thead>
+    <tbody class="table" id="isi-pesawat">
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+    $.ajax({
+            method: "GET",
+            url: "/api/api/pesawat",
+            success: function (responnya) {
+                responnya.data.forEach(nilai => {
+                    $("#isi-pesawat").append(`
+                            <tr>
+                                <td>${nilai}</td>
+                                <td>${nilai}</td>
+                            </tr>
+                        `)
+                })
+                $('#data-table').DataTable()
+            },
+            error: function (err) {
+                alert(err)
+            }
+        })</script>
+}

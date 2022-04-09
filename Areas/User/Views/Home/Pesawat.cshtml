@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Pesawat>
+
+<h3 class="bi-align-center text-warning">Daftar Tiket Yang Tersedia</h3>
+<hr />
+<table class="table text-wa" id="tb-datatable">
+    <thead>
+        <tr>
+            <th>IMAGE</th>
+            <th>MASKAPAI</th>
+            <th>BANDARA ASAL</th>
+            <th>BANDARA TUJUAN</th>
+            <th>WAKTU KEBERANGKATAN</th>
+            <th>HARGA</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.image" alt="fotonya" width="100px" /></td>
+                <td>@item.Maskapai</td>
+                <td>@item.Bandara_asal</td>
+                <td>@item.Bandara_tujuan</td>
+                <td>@item.berangkat</td>
+                <td>@item.harga</td>
+                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Pelanggan">Pesan</a></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tb-datatable').DataTable(
+                {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'print',
+                    ]
+                }
+            );
+        });
+    </script>
+}

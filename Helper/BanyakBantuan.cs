@@ -7,7 +7,7 @@ namespace Traveler.Helper
 {
     public class BanyakBantuan
     {
-        public int BuatOTP()
+        public static int BuatOTP()
         {
             Random mulai = new Random();
 

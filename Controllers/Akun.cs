@@ -57,7 +57,7 @@ namespace Traveler.Controllers
             if (cariEmail != null) return new { result = false, message = "Email " + emailTujuan + " sudah terdaftar" };
 
             BanyakBantuan _bantu = new();
-            _OTP = _bantu.BuatOTP(); // dari helper, dan memasukan ke variable _OTP diatas
+            _OTP = BanyakBantuan.BuatOTP(); // dari helper, dan memasukan ke variable _OTP diatas
 
             // mengisi email
             string subjeknya = "Konfirmasi email untuk daftar akun";
@@ -79,7 +79,7 @@ namespace Traveler.Controllers
         }
 
         public IActionResult Masuk()
-        {
+        {          
             return View();
         }
 

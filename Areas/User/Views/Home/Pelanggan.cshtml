@@ -1,0 +1,47 @@
+﻿@model Pelanggan
+
+@{ ViewData["Title"] = "DATA DIRI"; }
+
+
+<h4 class="text-warning">Isi Data Diri</h4>
+<hr />
+<div class="row">
+    <div class="card-body">
+        <form asp-action="Pelanggan" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="nik" class="control-label">NIK</label>
+                <input asp-for="nik" placeholder="Masukan nik.." class="form-control" />
+                <span asp-validation-for="nik" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
+                <label asp-for="nama_pelanggan" class="control-label">NAMA</label>
+                <input asp-for="nama_pelanggan" placeholder="Masukan nama.." class="form-control" />
+                <span asp-validation-for="nama_pelanggan" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
+                <label asp-for="no_telp" class="control-label">NO TELPON</label>
+                <input asp-for="no_telp" class="form-control" />
+                <span asp-validation-for="no_telp" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
+                <label asp-for="email" class="control-label">EMAIL</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group form-check">
+                <label asp-for="kartu_vaksin" class="form-check-label">
+                    <input class="form-check-input" asp-for="kartu_vaksin" /> @Html.DisplayNameFor(Model => Model.kartu_vaksin)
+                </label>
+            </div><br />
+
+            <div class="form-group">
+                <input type="submit" value="Pesan" id="pesan-btn" class="btn btn-primary"/>
+                <input asp-controller="Home" asp-action="Index" type="submit" value="Kembali" class="btn btn-primary float-xl-right" />
+            </div><br />
+        </form>
+    </div>
+</div>

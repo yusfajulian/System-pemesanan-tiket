@@ -10,6 +10,6 @@ namespace Traveler.Models
     {
         [Key]
         public string id_kelas { get; set; }
-        public string nama { get; set; }
+        public string nama_kelas { get; set; }
     }
 }

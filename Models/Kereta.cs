@@ -10,12 +10,11 @@ namespace Traveler.Models
     {
         [Key]
         public string kode_kereta { get; set; }
-        public string dari { get; set; }
-        public string ke { get; set; }
-        public Jenis_kereta jenis_Kereta { get; set; }
-        public Kelas kelas { get; set; }
-        public Jam_kereta jam_Kereta { get; set; }
-        public int jml_kursi { get; set; }
+        public string nama_kereta { get; set; }
+        public string stasiun_asal { get; set; }
+        public string stasiun_tujuan { get; set; }
+        public DateTime berangkat { get; set; }
+        public string image { get; set; }
         public int harga { get; set; }
     }
 }

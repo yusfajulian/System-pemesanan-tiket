@@ -98,7 +98,7 @@ namespace Traveler.Areas.Admin.Controllers
             }
             return View(parameter);
         }
-
+        [HttpDelete]
         public async Task<IActionResult> HapusPelanggan(string id)
         {
 
@@ -112,6 +112,7 @@ namespace Traveler.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+        [HttpDelete]
         public async Task<IActionResult> HapusPesawat(string id)
         {
 
@@ -125,9 +126,9 @@ namespace Traveler.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+        [HttpDelete]
         public async Task<IActionResult> HapusKereta(string id)
         {
-
             if (id == null)
             {
                 return NotFound();
@@ -138,6 +139,7 @@ namespace Traveler.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+        [HttpDelete]
         public async Task<IActionResult> HapusTravel(string id)
         {
 
@@ -151,7 +153,7 @@ namespace Traveler.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
-
+        [HttpDelete]
         public async Task<IActionResult> HapusTransaksi(string id)
         {
 
@@ -176,7 +178,7 @@ namespace Traveler.Areas.Admin.Controllers
             return View(cari);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UbahPesawat(Pesawat data)
         {
             if (ModelState.IsValid)
@@ -204,7 +206,7 @@ namespace Traveler.Areas.Admin.Controllers
             return View(cari);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UbahKereta(Kereta data)
         {
             if (ModelState.IsValid)
@@ -232,7 +234,7 @@ namespace Traveler.Areas.Admin.Controllers
             return View(cari);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UbahTravel(Travel data)
         {
             if (ModelState.IsValid)

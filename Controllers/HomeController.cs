@@ -19,17 +19,8 @@ namespace QUERY.Controllers
         {
             _logger = logger;
         }
+        public IActionResult FromAPI() => View();
         public IActionResult Index() => View();
 
-        public IActionResult Dilarang() => View();
-       
-        //public string CekValidasi([RegularExpression(@"^[0-9]*$")] string Cek)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        return Cek;
-        //    }
-        //    return "salah, harus angka";
-        //}
     }
 }

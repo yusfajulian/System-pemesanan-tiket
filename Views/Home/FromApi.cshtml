@@ -1,0 +1,40 @@
+﻿<table class="table" id="data-table">
+    <thead class="table">
+        <tr>
+            <th>IMAGE</th>
+            <th>MASKAPAI</th>
+            <th>BANDARA ASAL</th>
+            <th>BANDARA TUJUAN</th>
+            <th>WAKTU KEBERANGKATAN</th>
+            <th>HARGA</th>
+        </tr>
+    </thead>
+    <tbody class="table" id="isi-roles">
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "/api/home/roles",
+            success: function (responnya) {
+                responnya.data.forEach(nilai => {
+                    $("#isi-roles").append(`
+                            <tr>
+                                <td>#{}</td>
+                    <td>#{}</td>
+                    <td>#{}</td>
+                    <td>#{}</td>
+                    <td>#{}</td>
+                    <td>#{}</td>
+                            </tr>
+                        `)
+                })
+                $('#data-table').DataTable() // pake library datatable
+            },
+            error: function (err) {
+                alert(err)
+            }
+        })</script>
+}

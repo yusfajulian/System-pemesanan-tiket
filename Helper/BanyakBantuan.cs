@@ -15,11 +15,11 @@ namespace Traveler.Helper
             return nilainya;
         }
 
-        public Object BuatResponAPI(int respon_code, string message, Object data)
+        public static object Respon(string status, int respon_code, string message, object data)
         {
             return new
             {
-                status = respon_code == 200 ? "SUKSES" : "GAGAL",
+                status,
                 respon_code,
                 message,
                 data

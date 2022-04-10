@@ -35,6 +35,10 @@ namespace Traveler.Areas.User.Controllers
         {
             return View();
         }
+        public IActionResult Notif()
+        {
+            return View();
+        }
 
         public IActionResult FromAPIPesawat() => View();
 
@@ -64,7 +68,7 @@ namespace Traveler.Areas.User.Controllers
                 await _Admin.TambahPelanggan(parameter);
                 await _Admin.TambahTransaksi(transaksi, id, data);
 
-                return RedirectToAction(controllerName: "Home", actionName: "Index");
+                return RedirectToAction(controllerName: "Home", actionName: "Notif");
             }
             return View(parameter);
         }

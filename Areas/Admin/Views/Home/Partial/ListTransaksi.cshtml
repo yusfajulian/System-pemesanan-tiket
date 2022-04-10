@@ -1,4 +1,4 @@
-﻿@model AdminDashBoard
+﻿@*@model AdminDashBoard
 
 <h3>Daftar Transaksi</h3>
 <hr />
@@ -26,7 +26,7 @@
             <td>
                 <button style="background-color: aqua">
                     <a class="bi bi-trash" title="Detail" style="color:black;"
-                       onclick="if (!confirm('DETAIL\n\n DATA:\n NO TRANSAKSI : @item.id_transaksi \n NAMA PELANGGAN : @item.Pelanggan.nama_pelanggan \n TRANSIT :@item.Pelanggan.tanggal_berangkat BANDARA ASAL\n @item.pesawat.Bandara_asal\n BANDARA TUJUAN : @item.pesawat.Bandara_tujuan')) { return false; }">
+                       onclick="if (!confirm('DETAIL\n\n DATA:\n NO TRANSAKSI : @item.id_transaksi')) { return false; }">
                         Detail
                     </a>
                 </button>
@@ -45,4 +45,4 @@
         </tr>
         }
     </tbody>
-</table>
+</table>*@

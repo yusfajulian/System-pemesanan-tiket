@@ -26,7 +26,7 @@
                 <td>@item.Bandara_tujuan</td>
                 <td>@item.berangkat</td>
                 <td>@item.harga</td>
-                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Ubah" asp-route-id="@item.kode_pesawat">Edit</a></button></td>
+                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="UbahPesawat" asp-route-id="@item.kode_pesawat">Edit</a></button></td>
                 <td>
                     <button style="background-color: aqua">
                         <a class="bi bi-trash" title="Detail" style="color:black;"
@@ -37,9 +37,9 @@
                 </td>
                 <td>
                     <button style="background-color: red;">
-                        <a asp-action="hapus" asp-route-id="@item.kode_pesawat"
+                        <a asp-action="HapusPesawat" asp-route-id="@item.kode_pesawat"
                            class="bi bi-trash" title="keluar" style="color:black;"
-                           onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n KODE PESAWAT : @item.kode_pesawat \n MASKAPAI : @item.Maskapai \n BANDARA ASAL : @item.Bandara_asal\n BANDARA TUJUAN : @item.Bandara_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga'')) { return false;}">
+                           onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n KODE PESAWAT : @item.kode_pesawat \n MASKAPAI : @item.Maskapai \n BANDARA ASAL : @item.Bandara_asal\n BANDARA TUJUAN : @item.Bandara_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false;}">
                             Hapus
                         </a>
                     </button>

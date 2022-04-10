@@ -31,7 +31,7 @@
                 </td>
                 <td>
                     <button style="background-color: red;">
-                        <a asp-action="hapus" asp-route-id="@item.nik"
+                        <a asp-action="HapusPelanggan" asp-route-id="@item.nik"
                            class="bi bi-trash" title="keluar" style="color:black;"
                            onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n NIK : @item.nik \n NAMA : @item.nama_pelanggan \n NO TELP : @item.no_telp\n EMAIL : @item.email\n TANGGAL TRANSIT : @item.tanggal_berangkat')) { return false;}">
                             Hapus

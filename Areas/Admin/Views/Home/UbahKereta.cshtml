@@ -1,0 +1,58 @@
+﻿@model Kereta
+@{
+    Layout = "_LayoutAkun";
+}
+
+<h4 class="text-center">Ubah Data Kereta</h4>
+<hr />
+<br />
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="UbahKereta" method="post" enctype="multipart/form-data">
+            <input asp-for="kode_kereta" type="hidden" class="form-control" />
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input type="file" name="fotonya" accept=".jpg,.png" multiple class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nama_kereta" class="control-label"></label>
+                <input asp-for="nama_kereta" placeholder="Masukan Judul" class="form-control" />
+                <span asp-validation-for="nama_kereta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="stasiun_asal" class="control-label"></label>
+                <input asp-for="stasiun_asal" placeholder="Masukan Content" class="form-control" />
+                <span asp-validation-for="stasiun_asal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="stasiun_tujuan" class="control-label"></label>
+                <input asp-for="stasiun_tujuan" placeholder="Masukan Content" class="form-control" />
+                <span asp-validation-for="stasiun_tujuan" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="berangkat" class="control-label"></label>
+                <input asp-for="berangkat" class="form-control" />
+                <span asp-validation-for="berangkat" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="harga" class="control-label"></label>
+                <input asp-for="harga" class="form-control" />
+                <span asp-validation-for="harga" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn btn-primary" />
+                <input asp-controller="Home" asp-action="Index" type="submit" value="Kembali" class="btn btn-warning float-xl-right" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -26,7 +26,7 @@
                 <td>@item.kota_tujuan</td>
                 <td>@item.berangkat</td>
                 <td>@item.harga</td>
-                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="Ubah" asp-route-id="@item.kode_travel">Edit</a></button></td>
+                <td> <button style="background-color:green;"> <a asp-controller="Home" asp-action="UbahTravel" asp-route-id="@item.kode_travel">Edit</a></button></td>
                 <td>
                     <button style="background-color: aqua">
                         <a class="bi bi-trash" title="Detail" style="color:black;"
@@ -37,7 +37,7 @@
                 </td>
                 <td>
                     <button style="background-color: red;">
-                        <a asp-action="hapus" asp-route-id="@item.kode_travel"
+                        <a asp-action="HapusTravel" asp-route-id="@item.kode_travel"
                            class="bi bi-trash" title="keluar" style="color:black;"
                            onclick="if (!confirm('Yakin ingin menghapus blog dengan data sebagi berikut\n\n DATA:\n @item.image \n NAMA TRAVEL : @item.nama_travel \n KOTA ASAL : @item.kota_asal\n KOTA TUJUAN : @item.kota_tujuan\n WAKTU TRANSIT : @item.berangkat\n HARGA : @item.harga')) { return false;}">
                             Hapus

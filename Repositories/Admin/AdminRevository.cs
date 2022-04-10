@@ -103,5 +103,99 @@ namespace Traveler.Repository.Admin
 
             return true;
         }
+
+        public async Task<bool> HapusPelanggan(Pelanggan id)
+        {
+            _Admin.Remove(id);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> HapusPesawat(Pesawat id)
+        {
+            _Admin.Remove(id);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> HapusKereta(Kereta id)
+        {
+             _Admin.Remove(id);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> HapusTravel(Travel id)
+        {
+             _Admin.Remove(id);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<Kereta> CariIdKereta(string id)
+        {
+            return await _Admin.Tb_Kereta.FirstOrDefaultAsync(x => x.kode_kereta == id);
+        }
+
+        public async Task<Travel> CariIdTravel(string id)
+        {
+            return await _Admin.Tb_Travel.FirstOrDefaultAsync(x => x.kode_travel == id);
+        }
+
+        public async Task<transaksi> CariIdTransaksi(string id)
+        {
+            return await _Admin.Tb_Transaksi.FirstOrDefaultAsync(x => x.id_transaksi == id);
+        }
+
+        public async Task<bool> HapusTransaksi(transaksi id)
+        {
+            _Admin.Remove(id);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> UbahPesawat(Pesawat data)
+        {
+            _Admin.Tb_Pesawat.Update(data);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> UbahKereta(Kereta data)
+        {
+            _Admin.Tb_Kereta.Update(data);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> UbahTravel(Travel data)
+        {
+            _Admin.Tb_Travel.Update(data);
+            await _Admin.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<Pesawat> TampilSemuaPesawatId(string id)
+        {
+            return await _Admin.Tb_Pesawat.FirstOrDefaultAsync(x => x.kode_pesawat == id);
+        }
+
+        public async Task<Kereta> TampilSemuaKeretaId(string id)
+        {
+           return await _Admin.Tb_Kereta.FirstOrDefaultAsync (x => x.kode_kereta == id);
+        }
+
+        public async Task<Travel> TampilSemuaTravelId(string id)
+        {
+           return await _Admin.Tb_Travel.FirstOrDefaultAsync (x => x.kode_travel == id);
+        }
     }
 }
